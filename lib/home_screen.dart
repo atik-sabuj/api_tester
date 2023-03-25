@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:api_tester/models/posts_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -36,19 +35,21 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          FutureBuilder(
-            future: getPostApi(),
-              builder: (context, snapshot){
-              if(!snapshot.hasData){
-                return Text('Loading');
-              }else {
-                return ListView.builder(
-                  itemCount: postList.length,
-                    itemBuilder: (context, index){
-                  return Text(index.toString());
-                });
-              }
-           },
+          Expanded(
+            child: FutureBuilder(
+              future: getPostApi(),
+                builder: (context, snapshot){
+                if(!snapshot.hasData){
+                  return Text('Loading.....');
+                }else {
+                  return ListView.builder(
+                    itemCount: postList.length,
+                      itemBuilder: (context, index){
+                    return Text(postList[index].title.toString());
+                  });
+                }
+             },
+            ),
           )
         ],
       ),
