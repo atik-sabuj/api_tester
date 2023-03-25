@@ -36,7 +36,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-
+          FutureBuilder(
+            future: getPostApi(),
+              builder: (context, snapshot){
+              if(!snapshot.hasData){
+                return Text('Loading');
+              }else {
+                return ListView.builder(
+                  itemCount: postList.length,
+                    itemBuilder: (context, index){
+                  return Text(index.toString());
+                });
+              }
+           },
+          )
         ],
       ),
     );
