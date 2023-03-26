@@ -56,6 +56,12 @@ class _UserScreenState extends State<UserScreen> {
                                   ReusableRow(title: 'Name', value: snapshot.data![index].name.toString()),
                                   ReusableRow(title: 'username', value: snapshot.data![index].username.toString()),
                                   ReusableRow(title: 'email', value: snapshot.data![index].email.toString()),
+                                  ReusableRow(title: 'Address', value: snapshot.data![index].address!.city.toString()),
+                                  ReusableRow(title: 'Address Geo Latitude',
+                                      value: snapshot.data![index].address!.geo!.lat.toString()),
+                                  ReusableRow(title: 'Address Geo Longitude',
+                                      value: snapshot.data![index].address!.geo!.lng.toString()),
+
                                 ],
                               ),
                             ),
@@ -78,12 +84,15 @@ class ReusableRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(title),
-        Text(value),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title),
+          Text(value),
+        ],
+      ),
     );
   }
 }
