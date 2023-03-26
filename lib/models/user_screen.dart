@@ -12,6 +12,15 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('User Api'),
+      ),
+      body: Column(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
