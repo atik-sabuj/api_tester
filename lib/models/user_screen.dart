@@ -41,14 +41,28 @@ class _UserScreenState extends State<UserScreen> {
               child: FutureBuilder(
                 future: getUserApi(),
                 builder: (context, AsyncSnapshot<List<UserModel>> snapshot){
-                  return ListView.builder(
-                      itemBuilder: (context, index){
-                    return Card(
-                      child: Column(
 
-                      ),
-                    );
-                  });
+                  if(!snapshot.hasData){
+                    return CircularProgressIndicator();
+                  }else{
+                    return ListView.builder(
+                        itemCount: userList.length,
+                        itemBuilder: (context, index){
+                          return Card(
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('name'),
+                                    Text(snapshot.data![index].name.toString()),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  }
+
                 },
               ),
           )
