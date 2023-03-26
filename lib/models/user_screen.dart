@@ -53,7 +53,9 @@ class _UserScreenState extends State<UserScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-
+                                  ReusableRow(title: 'Name', value: snapshot.data![index].name.toString()),
+                                  ReusableRow(title: 'username', value: snapshot.data![index].username.toString()),
+                                  ReusableRow(title: 'email', value: snapshot.data![index].email.toString()),
                                 ],
                               ),
                             ),
@@ -79,8 +81,8 @@ class ReusableRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Name'),
-        Text(snapshot.data![index].name.toString()),
+        Text(title),
+        Text(value),
       ],
     );
   }
