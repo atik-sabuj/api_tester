@@ -36,15 +36,19 @@ class _PhotoScreenState extends State<PhotoScreen> {
       ),
       body: Column(
         children: [
-          FutureBuilder(
-            future: getPhotos(),
-              builder: (context,snapshot){
-            return ListView.builder(itemBuilder: (context,index){
-              return ListTile(
-                title : Text("Sabuj Photos"),
-              );
-            });
-          })
+          Expanded(
+            child: FutureBuilder(
+              future: getPhotos(),
+                builder: (context,snapshot){
+              return ListView.builder(
+                itemCount: photoList.length,
+                  itemBuilder: (context,index){
+                return ListTile(
+                  title : Text("Sabuj Photos"),
+                );
+              });
+            }),
+          )
         ],
       ),
     );
