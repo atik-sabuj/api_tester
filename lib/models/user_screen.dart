@@ -37,7 +37,21 @@ class _UserScreenState extends State<UserScreen> {
       ),
       body: Column(
         children: [
+          Expanded(
+              child: FutureBuilder(
+                future: getUserApi(),
+                builder: (context, AsyncSnapshot<List<UserModel>> snapshot){
+                  return ListView.builder(
+                      itemBuilder: (context, index){
+                    return Card(
+                      child: Column(
 
+                      ),
+                    );
+                  });
+                },
+              ),
+          )
         ],
       ),
     );
