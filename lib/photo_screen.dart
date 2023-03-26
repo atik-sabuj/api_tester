@@ -19,7 +19,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
 
     if(response.statusCode == 200) {
       for(Map i in data){
-        Photos photos = Photos(title: i['title'], url: i['url']);
+        Photos photos = Photos(title: i['title'], url: i['url'], id: i['id']);
         photoList.add(photos);
       }
       return photoList;
@@ -47,7 +47,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(snapshot.data![index].url.toString()),
                   ),
-                  title : Text(snapshot.data![index].title.toString()),
+                  subtitle: Text(snapshot.data![index].title.toString()),
+                  title : Text('Notes id:'+snapshot.data![index].id.toString()),
                 );
               });
             }),
@@ -60,6 +61,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
 
 class Photos {
   String title, url;
+  int id;
 
-  Photos({required this.title, required this.url});
+  Photos({required this.title, required this.url, required this.id});
 }
