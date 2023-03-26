@@ -39,12 +39,15 @@ class _PhotoScreenState extends State<PhotoScreen> {
           Expanded(
             child: FutureBuilder(
               future: getPhotos(),
-                builder: (context,snapshot){
+                builder: (context,AsyncSnapshot<List<Photos>> snapshot){
               return ListView.builder(
                 itemCount: photoList.length,
                   itemBuilder: (context,index){
                 return ListTile(
-                  title : Text("Sabuj Photos"),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(snapshot.data![index].url.toString()),
+                  ),
+                  title : Text(snapshot.data![index].title.toString()),
                 );
               });
             }),
