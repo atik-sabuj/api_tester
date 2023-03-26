@@ -49,15 +49,13 @@ class _UserScreenState extends State<UserScreen> {
                         itemCount: userList.length,
                         itemBuilder: (context, index){
                           return Card(
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Text('name'),
-                                    Text(snapshot.data![index].name.toString()),
-                                  ],
-                                ),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+
+                                ],
+                              ),
                             ),
                           );
                         });
@@ -71,3 +69,20 @@ class _UserScreenState extends State<UserScreen> {
     );
   }
 }
+
+class ReusableRow extends StatelessWidget {
+  String title, value;
+  ReusableRow({Key? key, required this.title, required this.value}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text('Name'),
+        Text(snapshot.data![index].name.toString()),
+      ],
+    );
+  }
+}
+
