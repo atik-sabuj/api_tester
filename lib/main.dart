@@ -1,4 +1,5 @@
 import 'package:api_tester/home_screen.dart';
+import 'package:api_tester/models/user_screen.dart';
 import 'package:api_tester/photo_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       //home: const HomeScreen(),
-      home: const PhotoScreen(),
+      //home: const PhotoScreen(),
+      home: const UserScreen(),
     );
   }
 }
