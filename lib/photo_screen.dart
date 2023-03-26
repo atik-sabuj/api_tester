@@ -18,9 +18,13 @@ class _PhotoScreenState extends State<PhotoScreen> {
     var data = jsonDecode(response.body.toString());
 
     if(response.statusCode == 200) {
-
+      for(Map i in data){
+        Photos photos = Photos(title: i['title'], url: i['url']);
+        photoList.add(photos);
+      }
+      return photoList;
     }else {
-
+      return photoList;
     }
   }
 
