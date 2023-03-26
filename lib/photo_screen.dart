@@ -10,6 +10,15 @@ class PhotoScreen extends StatefulWidget {
 class _PhotoScreenState extends State<PhotoScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Api Photo'),
+      ),
+      body: Column(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
