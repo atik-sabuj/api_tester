@@ -32,8 +32,14 @@ class _UsertwoScreenState extends State<UsertwoScreen> {
         children: [
           Expanded(
               child: FutureBuilder(
+                future: getUserApi(),
             builder: (context, snapshot){
-              return Text('');
+
+                  if(snapshot.connectionState == ConnectionState.waiting){
+                    return Text('Loading.....');
+                  }else{
+                    return Text('');
+                  }
             },
           ),
           )
