@@ -39,11 +39,13 @@ class _UsertwoScreenState extends State<UsertwoScreen> {
                     return Text('Loading.....');
                   }else{
                     return ListView.builder(
+                      itemCount: data.length,
                         itemBuilder: (context, index){
                           return Card(
                             child: Column(
                               children: [
-
+                                ReusableRow(title: 'Name', value: data[index]['name'].toString(),),
+                                ReusableRow(title: 'Username', value: data[index]['username'].toString(),),
                               ],
                             ),
                           );
