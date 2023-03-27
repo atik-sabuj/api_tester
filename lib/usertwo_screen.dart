@@ -38,11 +38,40 @@ class _UsertwoScreenState extends State<UsertwoScreen> {
                   if(snapshot.connectionState == ConnectionState.waiting){
                     return Text('Loading.....');
                   }else{
-                    return Text('');
+                    return ListView.builder(
+                        itemBuilder: (context, index){
+                          return Card(
+                            child: Column(
+                              children: [
+
+                              ],
+                            ),
+                          );
+                        });
                   }
             },
           ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+
+class ReusableRow extends StatelessWidget {
+  String title, value;
+  ReusableRow({Key? key, required this.title, required this.value}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title),
+          Text(value),
         ],
       ),
     );
