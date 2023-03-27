@@ -1,5 +1,5 @@
 import 'package:api_tester/home_screen.dart';
-import 'package:api_tester/models/user_screen.dart';
+import 'package:api_tester/user_screen.dart';
 import 'package:api_tester/photo_screen.dart';
 import 'package:flutter/material.dart';
 
