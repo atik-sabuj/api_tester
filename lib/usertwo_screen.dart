@@ -13,6 +13,15 @@ class UsertwoScreen extends StatefulWidget {
 class _UsertwoScreenState extends State<UsertwoScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('User Two Api'),
+      ),
+      body: Column(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
