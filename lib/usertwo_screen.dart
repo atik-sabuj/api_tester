@@ -11,6 +11,17 @@ class UsertwoScreen extends StatefulWidget {
 }
 
 class _UsertwoScreenState extends State<UsertwoScreen> {
+
+  var data;
+  Future<void> getUserApi () async {
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+
+    if (response.statusCode == 200){
+      data = jsonDecode(response.body.toString());
+    }else {
+
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +30,13 @@ class _UsertwoScreenState extends State<UsertwoScreen> {
       ),
       body: Column(
         children: [
-
+          Expanded(
+              child: FutureBuilder(
+            builder: (context, snapshot){
+              return Text('');
+            },
+          ),
+          )
         ],
       ),
     );
