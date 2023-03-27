@@ -46,6 +46,10 @@ class _UsertwoScreenState extends State<UsertwoScreen> {
                               children: [
                                 ReusableRow(title: 'Name', value: data[index]['name'].toString(),),
                                 ReusableRow(title: 'Username', value: data[index]['username'].toString(),),
+                                ReusableRow(title: 'Address', value: data[index]['address']['street'].toString(),),
+                                ReusableRow(title: 'Geo', value: data[index]['address']['geo'].toString(),),
+                                ReusableRow(title: 'Geo Latitude', value: data[index]['address']['geo']['lat'].toString(),),
+                                ReusableRow(title: 'Geo Longitude', value: data[index]['address']['geo']['lng'].toString(),),
                               ],
                             ),
                           );
